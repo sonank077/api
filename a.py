@@ -6,7 +6,42 @@ import re
 import traceback
 import time
 from urllib.parse import urlparse, parse_qs
+Python
 
+import telebot
+import requests
+import json
+import html
+import re
+import traceback
+import time
+from urllib.parse import urlparse, parse_qs
+import subprocess
+import sys
+
+def install_missing_packages(module_names):
+    """Installs missing Python packages using pip."""
+    missing = []
+    for module_name in module_names:
+        try:
+            __import__(module_name)
+        except ImportError:
+            missing.append(module_name)
+
+    if missing:
+        print(f"Installing missing packages: {', '.join(missing)}")
+        try:
+            subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
+            print("Successfully installed missing packages.")
+        except subprocess.CalledProcessError as e:
+            print(f"Error installing packages: {e}")
+            print("Please ensure pip is installed and in your system's PATH.")
+            sys.exit(1)
+    else:
+        print("All required packages are already installed.")
+
+# List of required modules
+required_modules = ['telebot', 'requests']
 # Replace with your actual bot token
 BOT_TOKEN = "6578917837:AAE_aFNfulvYw3clA94XZigAG0jdBQJZ48Y"
 ALLOWED_GROUP_ID = [-1002170354953]  # Replace with your allowed group IDs (as integers)
