@@ -6,16 +6,6 @@ import re
 import traceback
 import time
 from urllib.parse import urlparse, parse_qs
-Python
-
-import telebot
-import requests
-import json
-import html
-import re
-import traceback
-import time
-from urllib.parse import urlparse, parse_qs
 import subprocess
 import sys
 
